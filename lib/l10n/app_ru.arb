@@ -1,0 +1,10 @@
+{
+    "@@locale": "ru",
+    "welcomeMessage": "Приветствую!",
+    "createAccount": "Создать аккаунт!",
+    "currentPlan": "Текущий план: {planName}",
+    "fastingHistory": "История голодания",
+    "longestFast": "Рекорд голодания",
+    "averageFast": "Голодание в среднем"
+
+}

@@ -1,0 +1,9 @@
+{
+    "@@locale": "en",
+    "welcomeMessage": "Welcome Back!",
+    "createAccount": "Create Account",
+    "currentPlan": "Current Plan: {planName}",
+    "fastingHistory": "Fasting History",
+    "longestFast": "Longest Fast",
+    "averageFast": "Average Fast"
+}

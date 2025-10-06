@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1011646303665",
+    "project_id": "fasting-tracker-app-78f8c",
+    "storage_bucket": "fasting-tracker-app-78f8c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011646303665:android:d99fc4b7badd368747c190",
+        "android_client_info": {
+          "package_name": "com.example.fasting_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011646303665-3h5lp0kom5q88hc87p39gdold8jvflkl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fasting_tracker",
+            "certificate_hash": "f5c7585b0552b155d5767fed0146b20583412358"
+          }
+        },
+        {
+          "client_id": "1011646303665-3gmrrnfpc7gvnktke0u3f7ve5c83rkal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOrPzefkVb2fDzf29m2mqLbZMgGWNUfsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011646303665-3gmrrnfpc7gvnktke0u3f7ve5c83rkal.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1011646303665-t5u32no95jjo67qkbqp88p0okdjj6rjg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fastingTracker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

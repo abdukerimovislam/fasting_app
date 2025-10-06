@@ -4,6 +4,8 @@ import 'package:fasting_tracker/screens/home_screen.dart';
 import 'package:fasting_tracker/screens/progress_screen.dart';
 import 'package:fasting_tracker/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:fasting_tracker/screens/learn_screen.dart';
+import 'package:fasting_tracker/screens/article_detail_screen.dart';
 
 class MainTabsScreen extends StatefulWidget {
   const MainTabsScreen({super.key});
@@ -31,6 +33,7 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
       HomeScreen(key: _homeScreenKey), // Key is assigned here
       const ProgressScreen(),
       const SettingsScreen(),
+      const LearnScreen(),
     ];
   }
 
@@ -39,6 +42,7 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
     'Fasting Tracker',
     'My Progress',
     'Settings',
+    'Learn'
   ];
 
   // This function is called by the BottomNavigationBar when a tab is tapped
@@ -70,11 +74,10 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
       // The FloatingActionButton is only shown if we are on the HomeScreen (index 0)
       floatingActionButton: _selectedIndex == 0
           ? FloatingActionButton.extended(
-        onPressed: () {
+        onPressed: () async {
+          await homeState?.handleFastButtonPress();
           // We use the key to call the public method inside HomeScreenState
-          setState(() {
-            homeState?.handleFastButtonPress();
-          });
+          setState(() {});
 
         },
         label: Text(isFasting ? 'End Fast' : 'Start Fast'),
@@ -97,6 +100,10 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school_outlined),
+            label: 'Learn',
           ),
         ],
         currentIndex: _selectedIndex,
