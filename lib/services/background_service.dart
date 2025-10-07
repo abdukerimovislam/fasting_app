@@ -14,6 +14,7 @@ const waterReminderNotificationIdStart = 1000; // Water reminders will have IDs 
 
 @pragma('vm:entry-point')
 void onStart(ServiceInstance service) async {
+  configureLocalTimeZone();
   DartPluginRegistrant.ensureInitialized();
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
   FlutterLocalNotificationsPlugin();
@@ -41,7 +42,7 @@ void onStart(ServiceInstance service) async {
               notificationChannelId,
               'Fasting Timer',
               channelDescription: 'Shows the live fasting timer.',
-              icon: '@mipmap/ic_launcher',
+              icon: '@drawable/notification_icon.png',
               ongoing: true,
               playSound: false,
               showProgress: true,
@@ -91,6 +92,7 @@ void _scheduleWaterReminders(
           channelDescription: 'Reminders to stay hydrated during your fast.',
           importance: Importance.defaultImportance,
           priority: Priority.defaultPriority,
+          icon: '@drawable/notification_icon.png',
         ),
       ),
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,

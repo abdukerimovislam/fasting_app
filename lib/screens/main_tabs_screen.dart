@@ -6,6 +6,9 @@ import 'package:fasting_tracker/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fasting_tracker/screens/learn_screen.dart';
 import 'package:fasting_tracker/screens/article_detail_screen.dart';
+import 'package:confetti/confetti.dart';
+import 'program_detail_screen.dart';
+import 'programs_screen.dart';
 
 class MainTabsScreen extends StatefulWidget {
   const MainTabsScreen({super.key});
@@ -23,17 +26,21 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
 
   // We use `late final` because we need to initialize this list in initState
   // to properly assign the key.
+  late ConfettiController _confettiController;
   late final List<Widget> _pages;
 
   @override
   void initState() {
     super.initState();
     // Initialize the pages list here and assign the key to HomeScreen
+    _confettiController = ConfettiController(duration: const Duration(seconds: 1));
+
     _pages = <Widget>[
       HomeScreen(key: _homeScreenKey), // Key is assigned here
       const ProgressScreen(),
       const SettingsScreen(),
       const LearnScreen(),
+      const ProgramsScreen(),
     ];
   }
 
@@ -42,7 +49,8 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
     'Fasting Tracker',
     'My Progress',
     'Settings',
-    'Learn'
+    'Learn',
+    'Programs'
   ];
 
   // This function is called by the BottomNavigationBar when a tab is tapped
@@ -59,6 +67,8 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
     final homeState = _homeScreenKey.currentState;
     final isFasting = homeState?.isFasting ?? false;
 
+    final isCompleted = homeState?.isCompleted ?? false;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(_pageTitles[_selectedIndex]),
@@ -66,9 +76,21 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
         elevation: 0,
       ),
       // IndexedStack preserves the state of the screens when switching tabs
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _pages,
+      body: Stack(
+        alignment: Alignment.topCenter,
+        children: [IndexedStack(
+          index: _selectedIndex,
+          children: _pages,
+        ),
+          ConfettiWidget(
+            confettiController: _confettiController,
+            blastDirectionality: BlastDirectionality.explosive,
+            shouldLoop: false,
+            colors: const [
+              Colors.green, Colors.blue, Colors.pink, Colors.orange, Colors.purple
+            ],
+          ),
+        ],
       ),
 
       // The FloatingActionButton is only shown if we are on the HomeScreen (index 0)
@@ -104,6 +126,10 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.school_outlined),
             label: 'Learn',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bar_chart),
+              label: 'Progress'
           ),
         ],
         currentIndex: _selectedIndex,

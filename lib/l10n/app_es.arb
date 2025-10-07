@@ -1,9 +1,0 @@
-{
-    "@@locale": "es",
-    "welcomeMessage": "¡Bienvenido de nuevo!",
-    "createAccount": "Crear Cuenta",
-    "currentPlan": "Plan Actual: {planName}",
-    "fastingHistory": "Historial de Ayuno",
-    "longestFast": "Ayuno Más Largo",
-    "averageFast": "Ayuno Promedio"
-}
